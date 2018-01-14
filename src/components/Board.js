@@ -1,41 +1,43 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-import update from '../actions/update'
+import { connect } from 'react-redux'
 import Button from './Button'
+import guess from '../actions/hangman'
 
 class Board extends PureComponent {
   static propTypes = {
-      choicesLeft: PropTypes.number
+      // choicesLeft: PropTypes.number
     }
 
   updateChoice = () => {
-    this.props.update(this.props.choicesLeft)
+    // console.log(val);
+    const field = document.getElementById('guessInput')
+    const val = field.value
+    this.props.guess(val)
+    field.value = ""
   }
+
 
   render() {
     console.log(this.props);
     return (
-      // <h1>hi</h1>
       <div>
-      <h1>{this.props.choicesLeft}</h1>
-      <Button onClick={this.updateChoice} />
+      <h1>{this.props.wordState}</h1>
+      <label>
+        Enter guess (max 1):
+        <input id="guessInput" maxLength="1"/>
+        </label>
+        <Button onClick={this.updateChoice} />
       </div>
     )
   }
 }
 
 
-// const mapStateToProps = (state) => {
-//     return {
-//         choicesLeft: this.props.choicesLeft
-//     };
-// }
 
-const mapStateToProps = ({hangman}) => ({
-  choicesLeft: hangman.choicesLeft
-})
+const mapStateToProps = ({hangman}) => (hangman)
 
-const mapDispatchToProps = { update }
+const mapDispatchToProps = { guess }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board)
+// export default connect(mapStateToProps)(Board)

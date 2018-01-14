@@ -8,7 +8,7 @@ class Button extends PureComponent {
   }
   render() {
     return (
-      <button onClick={this.props.onClick}>Update</button>
+      <button onClick={this.props.onClick}>Guess</button>
     )
 
   }

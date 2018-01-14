@@ -1,8 +1,8 @@
-export const UPDATE = 'UPDATE'
+export const GUESS = 'GUESS'
 
 export default (choice) => {
   return {
-    type: UPDATE,
+    type: GUESS,
     payload: choice
   }
 }
