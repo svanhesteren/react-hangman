@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Board from './components/Board'
+import Gallow from './components/Gallow'
+import Title from './components/Title'
 
 class App extends Component {
   render() {
@@ -9,9 +11,11 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Hangman</h1>
+          <Title />
         </header>
         <div>
+        <br />
+          <Gallow />
           <Board />
           </div>
       </div>

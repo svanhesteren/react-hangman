@@ -7,6 +7,11 @@ import guess from '../actions/hangman'
 class Board extends PureComponent {
   static propTypes = {
       // choicesLeft: PropTypes.number
+
+      choicesLeft: PropTypes.number.isRequired,
+      wordState: PropTypes.string,
+      guesses: PropTypes.array
+
     }
 
   updateChoice = () => {
@@ -19,7 +24,7 @@ class Board extends PureComponent {
 
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div>
       <h1>{this.props.wordState}</h1>
