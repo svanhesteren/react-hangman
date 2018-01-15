@@ -30,9 +30,15 @@ class Board extends PureComponent {
       <h1>{this.props.wordState}</h1>
       <label>
         Enter guess (max 1):
-        <input id="guessInput" maxLength="1"/>
+        <input id="guessInput"
+                maxLength="1"
+                onKeyPress={event => {
+                  if (event.key === 'Enter') {
+                    this.updateChoice()
+                  }
+                }} />
         </label>
-        <Button onClick={this.updateChoice} />
+        <Button id="guessButton" onClick={this.updateChoice} />
       </div>
     )
   }

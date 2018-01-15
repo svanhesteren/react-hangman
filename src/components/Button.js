@@ -4,11 +4,12 @@ import PropTypes from 'prop-types'
 
 class Button extends PureComponent {
   static propTypes = {
-    onClick: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired,
+    id: PropTypes.string
   }
   render() {
     return (
-      <button onClick={this.props.onClick}>Guess</button>
+      <button id={this.props.id} onClick={this.props.onClick}>Guess</button>
     )
 
   }

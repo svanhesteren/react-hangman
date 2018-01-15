@@ -42,6 +42,7 @@ export default function (state = choices, {type, payload} = {}) {
           // console.log(showGuess(word, newGuesses));  //return wordStte + choicesLeft
           // console.log( "You lost!!");
           document.getElementById("guessInput").disabled = true;
+          document.getElementById("guessButton").disabled = true;
           return { ...state,
             guesses: newGuesses,
             wordState: showGuess(word, newGuesses),
